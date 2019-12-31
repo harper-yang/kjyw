@@ -55,6 +55,29 @@ done
 echo ok
 }
 
+Status_C() {
+	echo "start num"
+	read num1
+	echo "end num"
+	read num2
+	echo -en "\n"
+	n=$num1
+	port_array=$(netstat -nltp | sed -n '/^tcp6.*redis-server/p' | awk '{print $4}' | awk -F ':' '{print $4}')
+
+	for ((n=$num1;n<=$num2;n++))
+	do 
+		if [[ "${port_array[@]}" =~ "$n"  ]];
+		then	echo "port:$n,start success.."
+		else
+			echo "port:$n,start failure.."
+		fi
+	done;	
+
+
+
+}
+
+
 case "$1" in
  start)
 Start_C
@@ -70,6 +93,9 @@ Install_C
  ;;
  uninstall)
 Uninstall_A
+ ;;
+status)
+Status_C
  ;;
  *)
  echo "Usage: $SCRIPTNAME {start|stop|restart|install|uninstall}" >&2

@@ -1,0 +1,7 @@
+Active Internet connections (only servers)
+Proto Recv-Q Send-Q Local Address           Foreign Address         State       PID/Program name    
+tcp        0      0 0.0.0.0:6379            0.0.0.0:*               LISTEN      12388/redis-server  
+tcp        0      0 0.0.0.0:6380            0.0.0.0:*               LISTEN      12395/redis-server  
+tcp        0      0 0.0.0.0:22              0.0.0.0:*               LISTEN      1199/sshd           
+tcp6       0      0 :::6379                 :::*                    LISTEN      12388/redis-server  
+tcp6       0      0 :::6380                 :::*                    LISTEN      12395/redis-server  
